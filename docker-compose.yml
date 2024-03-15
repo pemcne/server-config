@@ -1,0 +1,28 @@
+version: '3'
+services:
+  edi:
+    image: ghcr.io/pemcne/edi:main
+    environment:
+      - BOT_NAME=Edi
+      - STOCKFISH_MOVETIME=10s
+    env_file:
+      - edi.env
+    volumes:
+      - /usr/share/zoneinfo/America/New_York:/etc/localtime
+    restart: unless-stopped
+  fran:
+    image: ghcr.io/pemcne/edi:main
+    environment:
+      - BOT_NAME=Fran
+      - STOCKFISH_MOVETIME=10s
+    env_file:
+      - fran.env
+    volumes:
+      - /usr/share/zoneinfo/America/New_York:/etc/localtime
+    restart: unless-stopped
+  tracker:
+    image: lednerb/opentracker-docker
+    restart: unless-stopped
+    port:
+      - 6969:6969
+      - 6969:6969/udp
