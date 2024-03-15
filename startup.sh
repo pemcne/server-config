@@ -12,7 +12,7 @@ if [ ! -f /etc/apt/sources.list.d/docker.list ]; then
 fi
 
 cd /root
-curl -sL https://raw.githubusercontent.com/pemcne/server-config/docker-compose.yml > docker-compose.yml
+curl -sL https://raw.githubusercontent.com/pemcne/server-config/main/docker-compose.yml > docker-compose.yml
 if [ ! -f edi.env ];then
   gcloud secrets versions access latest --secret edi-prod > edi.env
 fi

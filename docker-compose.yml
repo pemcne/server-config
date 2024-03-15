@@ -23,6 +23,6 @@ services:
   tracker:
     image: lednerb/opentracker-docker
     restart: unless-stopped
-    port:
+    ports:
       - 6969:6969
       - 6969:6969/udp
