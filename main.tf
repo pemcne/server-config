@@ -1,3 +1,10 @@
+terraform {
+  backend "gcs" {
+    bucket = "pemcne-tfstate"
+    prefix = "bot-server"
+  }
+}
+
 provider "google" {
   project = var.gcp_project
   region = "us-central1"
